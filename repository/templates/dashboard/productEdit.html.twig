@@ -1,0 +1,63 @@
+{% extends 'baseDash.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+
+<div style="width: 50%; margin-top: 50px" class="container">
+    <h3>Modifier le produit #{{ product.getId }}<h3>
+
+    <form action="{{ path('dashboard.edit', {id: id}) }}" enctype="multipart/form-data" method="POST">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Titre</span>
+            </div>
+            <input type="text" name="title" class="form-control" placeholder="{{ product.getTitle }}" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span style="height: 100%" class="input-group-text">Description</span>
+            </div>
+            <textarea name="description" placeholder="{{ product.getDescription }}" class="form-control" aria-label="With textarea"></textarea>
+        </div>
+
+        <div class="mt-4" style="display: flex; align-items: center;">
+            <img style="width: 50%; max-width: 150px" src="{{ asset('uploads/') ~ product.getImage }}">
+
+            <div class="input-group mb-3 p-4">
+                <input type="file" class="form-control" id="inputGroupFile02">
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+            </div>
+
+
+        </div>
+
+        <div class="mt-4" style="display: flex; align-items: center;">
+            <div class="input-group-prepend">
+                <span style="height: 100%" class="input-group-text">Categorie : {{ product.getCategorie }}</span>
+            </div>
+
+        </div>
+
+        <div class="mt-4" style="display: flex; align-items: center;">
+            <div class="input-group-prepend">
+                <span style="height: 100%" class="input-group-text">Taille :
+                 {% for taille in product.getTailles %}
+                 {{ taille }} 
+                 {% endfor %}
+                </span>
+            </div>
+
+        </div>
+
+
+
+
+        <button style="width: 100%" type="submit" class="btn btn-success mt-4">Confirmer</button>
+    </form>
+
+</div>
+
+
+{% endblock %}
