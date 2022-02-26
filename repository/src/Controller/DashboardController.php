@@ -105,6 +105,15 @@ class DashboardController extends AbstractController
                 $product->setTitle($request->get('title'));
             }
 
+            if ($request->get('tags')) {
+                $arr_tags = explode(',', $request->get('tags'));
+                $product->setKeyWords($arr_tags);
+            }
+
+            if ($request->get('tailles')) {
+                $product->setTailles($request->get('tailles'));
+            }
+
             $this->em->persist($product);
             $this->em->flush();
 
@@ -112,9 +121,17 @@ class DashboardController extends AbstractController
             return $this->redirectToRoute('dashboard');
         }
 
+        if ($product->getCategorie() == "Tee Shirt") {
+            $sizes = ["XS", "S", "M", "L", "XL"];
+        } else {
+            $sizes = ["38", "39", "40", "41", "42", "43", "44", "45", "46"];
+
+        }
+
         return $this->render('dashboard/productEdit.html.twig', [
             'id' => $id,
-            'product' => $product
+            'product' => $product,
+            'sizes' => $sizes
         ]);
     }
 }

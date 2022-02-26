@@ -17,7 +17,7 @@
                 {% for product in teeShirts|slice(0, 5) %}
                 <li class="col-4 mb-4">
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ product.getImage }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset('uploads/') ~ product.getImage }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ product.getTitle() }}</h5>
                             <p class="card-text">{{ product.getDescription() }}</p>
@@ -48,7 +48,7 @@
                 <li class="col-4 mb-4">
 
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ product.getImage }}" alt="Card image cap">
+                        <img class="card-img-top" src="{{ asset('uploads/') ~ product.getImage }}" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ product.getTitle() }}</h5>
                             <p class="card-text">{{ product.getDescription() }}</p>

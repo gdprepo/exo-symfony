@@ -71,18 +71,37 @@ class HomeController extends AbstractController
     public function categorie(Request $request, PaginatorInterface $paginator): Response
     {
         $products = $this->repository->findBy(array('Categorie' => $request->get('name')));
+        $size = [];
 
-        $articles = $paginator->paginate(
-            $products, // Requête contenant les données à paginer (ici nos articles)
-            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
-            6 // Nombre de résultats par page
-        );
+        // if ($request->get('tailles')) {
 
-        return $this->render('shop.html.twig', [
-            'products' => $articles,
-            'categorie' => true,
-            'string' => $request->get('name')
-         ]);
+        // $products = $this->repository->findBySize($request->get('name'), $request->get('tailles'));
+            
+        // }
+        if (!$request->get('tailles')) {
+            $articles = $paginator->paginate(
+                $products, // Requête contenant les données à paginer (ici nos articles)
+                $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+                6 // Nombre de résultats par page
+            );
+
+            return $this->render('shop.html.twig', [
+                'products' => $articles,
+                'categorie' => true,
+                'string' => $request->get('name'),
+            ]);
+
+        } else {
+            return $this->render('shop.html.twig', [
+                'products' => $products,
+                'categorie' => true,
+                'string' => $request->get('name'),
+                'tailles_filter' => $request->get('tailles')
+            ]);
+        }
+
+
+
     }
 
     

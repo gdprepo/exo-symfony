@@ -63,12 +63,13 @@ class __TwigTemplate_615dac8e5b0d955802e9f3035e8f1e40 extends Template
         // line 15
         echo "
         <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">
+        <link href=\"https://unpkg.com/@yaireo/tagify/dist/tagify.css\" rel=\"stylesheet\" type=\"text/css\" />
     </head>
     <body>
         <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
             <div class=\"container-fluid\">
                 <a class=\"navbar-brand\" href=\"";
-        // line 21
+        // line 22
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
         echo "\">HelloRse</a>
                 <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
@@ -80,29 +81,29 @@ class __TwigTemplate_615dac8e5b0d955802e9f3035e8f1e40 extends Template
                             <a class=\"nav-link\" aria-current=\"page\" href=\"#\">Catalogue</a>
                         </li>
                         ";
-        // line 30
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 30, $this->source); })()), "user", [], "any", false, false, false, 30)) {
-            // line 31
+        // line 31
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 31, $this->source); })()), "user", [], "any", false, false, false, 31)) {
+            // line 32
             echo "                        <li class=\"nav-item\">
                             <a class=\"nav-link\" aria-current=\"page\" href=\"/logout\">Logout</a>
                         </li>
                         ";
         }
-        // line 35
+        // line 36
         echo "                    </ul>
                 </div>
             </div>
         </nav>
 
         ";
-        // line 40
+        // line 41
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 40, $this->source); })()), "session", [], "any", false, false, false, 40), "flashbag", [], "any", false, false, false, 40), "get", [0 => "success"], "method", false, false, false, 40));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 41, $this->source); })()), "session", [], "any", false, false, false, 41), "flashbag", [], "any", false, false, false, 41), "get", [0 => "success"], "method", false, false, false, 41));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-            // line 41
+            // line 42
             echo "            <div class=\"alert alert-success\" role=\"alert\">
                 ";
-            // line 42
+            // line 43
             echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
             echo "
             </div>
@@ -111,23 +112,24 @@ class __TwigTemplate_615dac8e5b0d955802e9f3035e8f1e40 extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 45
+        // line 46
         echo "
 
 
         ";
-        // line 48
-        $this->displayBlock('body', $context, $blocks);
         // line 49
+        $this->displayBlock('body', $context, $blocks);
+        // line 50
         echo "
 
         <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\" integrity=\"sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
-
+        <script src=\"https://unpkg.com/@yaireo/tagify\"></script>
+        <script src=\"https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js\"></script>
         ";
-        // line 54
+        // line 56
         $this->displayBlock('script', $context, $blocks);
-        // line 55
+        // line 57
         echo "
     </body>
 </html>
@@ -184,7 +186,7 @@ class __TwigTemplate_615dac8e5b0d955802e9f3035e8f1e40 extends Template
 
     }
 
-    // line 48
+    // line 49
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -196,7 +198,7 @@ class __TwigTemplate_615dac8e5b0d955802e9f3035e8f1e40 extends Template
 
     }
 
-    // line 54
+    // line 56
     public function block_script($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -220,7 +222,7 @@ class __TwigTemplate_615dac8e5b0d955802e9f3035e8f1e40 extends Template
 
     public function getDebugInfo()
     {
-        return array (  200 => 54,  188 => 48,  178 => 13,  171 => 12,  161 => 9,  154 => 8,  141 => 5,  131 => 55,  129 => 54,  122 => 49,  120 => 48,  115 => 45,  106 => 42,  103 => 41,  99 => 40,  92 => 35,  86 => 31,  84 => 30,  72 => 21,  64 => 15,  62 => 12,  59 => 11,  56 => 8,  51 => 5,  45 => 1,);
+        return array (  202 => 56,  190 => 49,  180 => 13,  173 => 12,  163 => 9,  156 => 8,  143 => 5,  133 => 57,  131 => 56,  123 => 50,  121 => 49,  116 => 46,  107 => 43,  104 => 42,  100 => 41,  93 => 36,  87 => 32,  85 => 31,  73 => 22,  64 => 15,  62 => 12,  59 => 11,  56 => 8,  51 => 5,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -241,6 +243,7 @@ class __TwigTemplate_615dac8e5b0d955802e9f3035e8f1e40 extends Template
         {% endblock %}
 
         <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">
+        <link href=\"https://unpkg.com/@yaireo/tagify/dist/tagify.css\" rel=\"stylesheet\" type=\"text/css\" />
     </head>
     <body>
         <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">
@@ -277,11 +280,12 @@ class __TwigTemplate_615dac8e5b0d955802e9f3035e8f1e40 extends Template
 
         <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js\" integrity=\"sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
-
+        <script src=\"https://unpkg.com/@yaireo/tagify\"></script>
+        <script src=\"https://unpkg.com/@yaireo/tagify/dist/tagify.polyfills.min.js\"></script>
         {% block script %}{% endblock %}
 
     </body>
 </html>
-", "baseDash.html.twig", "/Users/depairegabin/Documents/hellorse/hellorse_exo/templates/baseDash.html.twig");
+", "baseDash.html.twig", "/Users/depairegabin/Documents/hellorse/exo-symfony/hellorse_exo/templates/baseDash.html.twig");
     }
 }

@@ -127,6 +127,7 @@
     <parameter key="data_collector.templates" type="collection"/>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
+      <parameter>bootstrap_4_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">/Users/depairegabin/Documents/hellorse/exo-symfony/hellorse_exo/templates</parameter>
     <parameter key="doctrine.dbal.logger.chain.class">Doctrine\DBAL\Logging\LoggerChain</parameter>
@@ -3988,7 +3989,15 @@
         </service>
       </argument>
     </service>
-    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap"/>
+    <service id="security.access_map" class="Symfony\Component\Security\Http\AccessMap">
+      <call method="add">
+        <argument type="service" id=".security.request_matcher.pbyKmZE"/>
+        <argument type="collection">
+          <argument>IS_AUTHENTICATED_FULLY</argument>
+        </argument>
+        <argument>null</argument>
+      </call>
+    </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener">
       <tag name="monolog.logger" channel="security"/>
       <argument type="service" id="security.untracked_token_storage"/>
@@ -4451,6 +4460,9 @@
         <argument key="security.firewall.map.context.dev" type="service_closure" id="security.firewall.map.context.dev"/>
         <argument key="security.firewall.map.context.main" type="service_closure" id="security.firewall.map.context.main"/>
       </argument>
+    </service>
+    <service id=".security.request_matcher.pbyKmZE" class="Symfony\Component\HttpFoundation\RequestMatcher">
+      <argument>^/dashboard</argument>
     </service>
     <service id="security.command.user_password_hash" class="Symfony\Component\PasswordHasher\Command\UserPasswordHashCommand">
       <tag name="console.command"/>

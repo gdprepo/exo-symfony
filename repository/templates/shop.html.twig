@@ -44,23 +44,62 @@
             </div>
             {% endif %}
 
+            <form method="GET" action="{{ path('recherche.categorie', {name: string}) }}">
+
+            <div style="display: flex">
+            {% if string == "Tee Shirt" %}
+                {% set tailles = ['XS', 'S', 'M', 'L' ,'XL'] %}
+            {% else %}
+                {% set tailles = ['38', '39', '40', '41', '42', '43', '44', '45', '46'] %}
+            {% endif %}   
+
+            {% for taille in tailles %}
+            <div style="max-width: 100px" class="input-group mb-3">
+                <div class="input-group-text">
+                    <label style="margin-right: 10px">{{ taille }}</label>
+
+                    <input name="tailles[]" class="form-check-input mt-0" type="checkbox" value="{{ taille }}" aria-label="Checkbox for following text input">
+                </div>
+            </div>
+            {% endfor %}
+
+            <div style="max-width: 100px" class="input-group mb-3">
+                <button type="submit" class="btn btn-primary">Rechercher</button>
+            </div>         
+            </div>
+            </form>
+
+
             {% for product in products %}
+            {% if  tailles_filter|default and tailles_filter |filter((taille) => taille in product.getTailles) | length > 0 or not tailles_filter|default %}
             <div class="col-4 mb-4">
                 <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{{ product.getImage }}" alt="Card image cap">
+                    <img class="card-img-top" src="{{ asset('uploads/') ~ product.getImage }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{ product.getTitle() }}</h5>
                         <p class="card-text">{{ product.getDescription() }}</p>
                         <p class="card-text">{{ product.getPrice() }} €</p>
+                        <div style="display: grid">
+                        <span class="mb-2">
+                            Tailles : {{ product.getTailles|join(', ') }}
+                        </span>
+                        <span>
+                            {{ product.getKeyWords|join(', ') }}
+                        </span>                        
+                        </div>
+
                     </div>
                 </div>
             </div>
+            {% endif %}
+
 
             {% endfor %}
 
         </div>
-
+        {% if not tailles_filter|default %}
         {{ knp_pagination_render(products) }}
+        {% endif %}
     </div>
 
 

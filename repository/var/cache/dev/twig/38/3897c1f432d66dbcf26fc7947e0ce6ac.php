@@ -78,7 +78,7 @@ class __TwigTemplate_df130e4fb1307bdb46739cb502865df3 extends Template
                     <div class=\"card\" style=\"width: 18rem;\">
                         <img class=\"card-img-top\" src=\"";
             // line 20
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "getImage", [], "any", false, false, false, 20), "html", null, true);
+            echo twig_escape_filter($this->env, ($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("uploads/") . twig_get_attribute($this->env, $this->source, $context["product"], "getImage", [], "any", false, false, false, 20)), "html", null, true);
             echo "\" alt=\"Card image cap\">
                         <div class=\"card-body\">
                             <h5 class=\"card-title\">";
@@ -131,7 +131,7 @@ class __TwigTemplate_df130e4fb1307bdb46739cb502865df3 extends Template
                     <div class=\"card\" style=\"width: 18rem;\">
                         <img class=\"card-img-top\" src=\"";
             // line 51
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "getImage", [], "any", false, false, false, 51), "html", null, true);
+            echo twig_escape_filter($this->env, ($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("uploads/") . twig_get_attribute($this->env, $this->source, $context["product"], "getImage", [], "any", false, false, false, 51)), "html", null, true);
             echo "\" alt=\"Card image cap\">
                         <div class=\"card-body\">
                             <h5 class=\"card-title\">";
@@ -209,7 +209,7 @@ class __TwigTemplate_df130e4fb1307bdb46739cb502865df3 extends Template
                 {% for product in teeShirts|slice(0, 5) %}
                 <li class=\"col-4 mb-4\">
                     <div class=\"card\" style=\"width: 18rem;\">
-                        <img class=\"card-img-top\" src=\"{{ product.getImage }}\" alt=\"Card image cap\">
+                        <img class=\"card-img-top\" src=\"{{ asset('uploads/') ~ product.getImage }}\" alt=\"Card image cap\">
                         <div class=\"card-body\">
                             <h5 class=\"card-title\">{{ product.getTitle() }}</h5>
                             <p class=\"card-text\">{{ product.getDescription() }}</p>
@@ -240,7 +240,7 @@ class __TwigTemplate_df130e4fb1307bdb46739cb502865df3 extends Template
                 <li class=\"col-4 mb-4\">
 
                     <div class=\"card\" style=\"width: 18rem;\">
-                        <img class=\"card-img-top\" src=\"{{ product.getImage }}\" alt=\"Card image cap\">
+                        <img class=\"card-img-top\" src=\"{{ asset('uploads/') ~ product.getImage }}\" alt=\"Card image cap\">
                         <div class=\"card-body\">
                             <h5 class=\"card-title\">{{ product.getTitle() }}</h5>
                             <p class=\"card-text\">{{ product.getDescription() }}</p>
@@ -264,6 +264,6 @@ class __TwigTemplate_df130e4fb1307bdb46739cb502865df3 extends Template
 
 </div>
 
-{% endblock %}", "index.html.twig", "/Users/depairegabin/Documents/hellorse/hellorse_exo/templates/index.html.twig");
+{% endblock %}", "index.html.twig", "/Users/depairegabin/Documents/hellorse/exo-symfony/hellorse_exo/templates/index.html.twig");
     }
 }

@@ -29,29 +29,41 @@
                 <input type="file" class="form-control" id="inputGroupFile02">
                 <label class="input-group-text" for="inputGroupFile02">Upload</label>
             </div>
-
-
         </div>
 
         <div class="mt-4" style="display: flex; align-items: center;">
             <div class="input-group-prepend">
                 <span style="height: 100%" class="input-group-text">Categorie : {{ product.getCategorie }}</span>
             </div>
-
         </div>
 
         <div class="mt-4" style="display: flex; align-items: center;">
-            <div class="input-group-prepend">
+            <div style="width: 100%" class="input-group-prepend">
                 <span style="height: 100%" class="input-group-text">Taille :
-                 {% for taille in product.getTailles %}
-                 {{ taille }} 
-                 {% endfor %}
+                {{ product.getTailles|join(', ') }}
                 </span>
+
+                {# <input name="tailles" placeholder="write some tags" value="{{ product.getTailles|join(', ') }}"> #}
+            <select name="tailles[]" class="form-select" multiple aria-label="multiple select example">
+                {% for size in sizes %}
+                <option value="{{size}}">{{size}}</option>
+                {% endfor %}
+            </select>
+            
             </div>
 
         </div>
 
+        <div class="mt-4" style="display: flex; align-items: center;">
+            <div style="width: 100%" class="input-group-prepend">
+                <span style="height: 100%" class="input-group-text">Keywords :
+                {{ product.getKeywords|join(', ') }}
+                </span>
 
+                <input name="tags" placeholder="write some tags" value="{{ product.getKeywords|join(', ') }}">
+            </div>
+
+        </div>
 
 
         <button style="width: 100%" type="submit" class="btn btn-success mt-4">Confirmer</button>
@@ -61,3 +73,24 @@
 
 
 {% endblock %}
+
+{% block script %}
+
+<script>
+
+	{# $('[name=tags]').tagify(); #}
+
+    var input = document.querySelector('input[name=tags]'),
+
+    tagify = new Tagify( input, {
+        originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(',')
+    });
+
+    var input_tailles = document.querySelector('input[name=tailles]'),
+
+    tagify = new Tagify( input_tailles, {
+        originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(',')
+    });
+</script>
+{% endblock %}
+
