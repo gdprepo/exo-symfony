@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div style="margin-top: 50px;" class="container">
+    {# <div style="text-align: center;">
+        <h2>Bienvenue</h2>
+    </div> #}
+
+
+    <div style="margin-top: 100px; width: 80%; margin-bottom: 30px" class="mx-auto">
+        <div style="text-align: center; margin-bottom: 50px">
+            <h3>Tee Shirt</h3>
+        </div>
+        <div class="row">
+            <ul style="list-style: none; display: flex; overflow-x: scroll;">
+                {% for product in teeShirts|slice(0, 5) %}
+                <li class="col-4 mb-4">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ asset('uploads/') ~ product.getImage }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.getTitle() }}</h5>
+                            <p class="card-text">{{ product.getDescription() }}</p>
+                            <p class="card-text">{{ product.getPrice() }} €</p>
+                        </div>
+                    </div>
+                </li>
+
+                {% endfor %}
+            </ul>
+
+            <div style="text-align: center;">
+                <button type="button" class="btn btn-primary">Tout les Tee Shirt</button>
+            </div>
+
+        </div>
+    </div>
+
+    <hr>
+
+    <div style="margin-top: 100px; width: 80%" class="mx-auto">
+        <div style="text-align: center; margin-bottom: 50px">
+            <h3>Chaussures</h3>
+        </div>
+        <div class="row">
+            <ul style="list-style: none; display: flex; overflow-x: scroll;">
+                {% for product in shoes|slice(0, 5) %}
+                <li class="col-4 mb-4">
+
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ asset('uploads/') ~ product.getImage }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.getTitle() }}</h5>
+                            <p class="card-text">{{ product.getDescription() }}</p>
+                        </div>
+                    </div>
+                </li>
+
+                {% endfor %}
+            </ul>
+
+            <div style="text-align: center;">
+                <button type="button" class="btn btn-primary">Tout les Tee Shirt</button>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

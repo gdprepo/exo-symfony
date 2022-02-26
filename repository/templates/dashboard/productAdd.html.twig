@@ -1,0 +1,89 @@
+{% extends 'baseDash.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+
+<div style="width: 50%; margin-top: 50px" class="container">
+    <h3>Creer un produit<h3>
+
+    <form action="{{ path('dashboard.create') }}" enctype="multipart/form-data" method="POST">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Titre</span>
+            </div>
+            <input type="text" name="title" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span style="height: 100%" class="input-group-text">Description</span>
+            </div>
+            <textarea name="description" placeholder="" class="form-control" aria-label="With textarea"></textarea>
+        </div>
+
+        <div class="mt-4" style="display: flex; align-items: center;">
+            <div class="input-group mb-3">
+                <input name="image" type="file" class="form-control" id="inputGroupFile02">
+                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Prix</span>
+            </div>
+            <input type="text" name="price" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+
+        <select id="selectCategorie" name="categorie" class="form-select" aria-label="Default select example">
+            <option value="Tee Shirt" selected>Tee Shirt</option>
+            <option value="Chaussure">Chaussure</option>
+        </select>
+
+        <label style="font-size: 14px" class="mb-2 mt-4">Tailles: </label>
+        <select id="sizeTeeShirt" name="tailleTeeShirt[]" class="form-select" multiple aria-label="multiple select example">
+            <option value="XS">XS</option>
+            <option value="S">S</option>
+            <option value="M">M</option>
+            <option value="L">L</option>
+            <option value="XS">XL</option>
+        </select>
+
+        <select id="sizeShoes" name="tailleShoes[]" style="display: none" class="form-select" multiple aria-label="multiple select example">
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
+            <option value="46">46</option>
+        </select>
+
+        <button style="width: 100%" type="submit" class="btn btn-success mt-4">Confirmer</button>
+    </form>
+
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+    $('#selectCategorie').on('change', function() {
+        if (this.value === "Tee Shirt") {
+            $('#sizeTeeShirt').show();
+            $('#sizeShoes').hide();
+        } else {
+            $('#sizeTeeShirt').hide();
+            $('#sizeShoes').show();
+        }
+    });
+
+</script>
+
+{% endblock %}
+

@@ -1,0 +1,56 @@
+{% extends 'baseDash.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+
+</style>
+
+<div class="example-wrapper">
+    <h1>Catalogue produits ✅</h1>
+
+    <div class="container">
+        <a href="{{ path('dashboard.create') }}">
+            <button style="float: right" type="button" class="btn btn-success">Ajouter</button>
+        </a>
+
+        <table class="table">
+        
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Titre</th>
+                <th scope="col">Description</th>
+                <th scope="col">Image</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <th scope="row">{{ product.getId }}</th>
+                <td>{{ product.getTitle }}</td>
+                <td>{{ product.getDescription}}</td>
+                <td><img style="width: 100%; max-width: 150px" src="{{ asset('uploads/') ~ product.getImage }}"></td>
+                <td>
+                    <a href="{{ path('dashboard.edit', {id: product.getId}) }}">
+                        <button style="width: 100%" type="button" class="btn btn-primary">Modifier</button>
+                    </a>
+                    <a href="{{ path('dashboard.delete', {id: product.getId}) }}">
+                        <button style="width: 100%" type="button" class="btn btn-danger">Supprimer</button>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+        </table>
+    </div>
+
+
+
+</div>
+{% endblock %}
