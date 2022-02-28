@@ -54,54 +54,6 @@ class DashboardController extends AbstractController
         return $this->redirectToRoute('dashboard');
     }
 
-    // #[Route('/dashboard/create', name: 'dashboard.create')]
-    // public function add(Request $request): Response
-    // {
-    //     $id = $request->get('id');
-    //     $product = new Product();
-
-    //     if ($request->isMethod('post')) {
-    //         if ($request->get('title')) {
-    //             $product->setTitle($request->get('title'));
-    //         }
-
-    //         if ($request->get('description')) {
-    //             $product->setDescription($request->get('description'));
-    //         }
-
-    //         $file = $request->files->get('image');
-    //         $uploads_directory = $this->getParameter('upload_directory');
-
-    //         $filename = md5(uniqid()) . '.' . $file->guessExtension();
-
-    //         $file->move(
-    //             $uploads_directory,
-    //             $filename
-    //         );
-
-    //         $product->setImage($filename);
-    //         $product->setPrice($request->get('price'));
-    //         $product->setCategorie($request->get('categorie'));
-    //         $product->setTailles($request->get('tailleTeeShirt'));
-
-    //         if ($request->get('tags')) {
-    //             $arr_tags = explode(',', $request->get('tags'));
-    //             $product->setKeyWords($arr_tags);
-    //         }
-
-    //         $this->em->persist($product);
-    //         $this->em->flush();
-
-    //         $this->addFlash("success", "Le produit à bien été créé !");
-    //         return $this->redirectToRoute('dashboard');
-    //     }
-
-    //     return $this->render('dashboard/productAdd.html.twig', [
-    //         'id' => $id,
-    //         'product' => $product
-    //     ]);
-    // }
-
     #[Route('/dashboard/create', name: 'dashboard.create')]
     #[Route('/dashboard/{id}/edit', name: 'dashboard.edit')]
     public function edit(int $id = null, Request $request, SluggerInterface $slugger): Response
