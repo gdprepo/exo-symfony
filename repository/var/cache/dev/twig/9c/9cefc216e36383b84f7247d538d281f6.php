@@ -73,13 +73,13 @@ class __TwigTemplate_ee398f9c1ba635a18f91154797963de3 extends Template
                 <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
                     <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">
                         <li class=\"nav-item\">
-                            <a class=\"nav-link active\" aria-current=\"page\" href=\"#\">Home</a>
+                            <a class=\"nav-link active\" aria-current=\"page\" href=\"";
+        // line 28
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
+        echo "\">Home</a>
                         </li>
                         <li class=\"nav-item dropdown\">
-                            <a class=\"nav-link dropdown-toggle\" href=\"";
-        // line 31
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("home");
-        echo "\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
+                            <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
                                 Shop
                             </a>
                             <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
@@ -212,7 +212,7 @@ class __TwigTemplate_ee398f9c1ba635a18f91154797963de3 extends Template
 
     public function getDebugInfo()
     {
-        return array (  192 => 56,  182 => 13,  175 => 12,  165 => 9,  158 => 8,  145 => 5,  131 => 57,  129 => 56,  117 => 47,  114 => 46,  108 => 43,  105 => 42,  103 => 41,  97 => 38,  92 => 36,  88 => 35,  81 => 31,  63 => 15,  61 => 12,  58 => 11,  55 => 8,  50 => 5,  44 => 1,);
+        return array (  192 => 56,  182 => 13,  175 => 12,  165 => 9,  158 => 8,  145 => 5,  131 => 57,  129 => 56,  117 => 47,  114 => 46,  108 => 43,  105 => 42,  103 => 41,  97 => 38,  92 => 36,  88 => 35,  78 => 28,  63 => 15,  61 => 12,  58 => 11,  55 => 8,  50 => 5,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -244,10 +244,10 @@ class __TwigTemplate_ee398f9c1ba635a18f91154797963de3 extends Template
                 <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">
                     <ul class=\"navbar-nav me-auto mb-2 mb-lg-0\">
                         <li class=\"nav-item\">
-                            <a class=\"nav-link active\" aria-current=\"page\" href=\"#\">Home</a>
+                            <a class=\"nav-link active\" aria-current=\"page\" href=\"{{ path('home') }}\">Home</a>
                         </li>
                         <li class=\"nav-item dropdown\">
-                            <a class=\"nav-link dropdown-toggle\" href=\"{{ path('home') }}\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
+                            <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbarDropdown\" role=\"button\" data-bs-toggle=\"dropdown\" aria-expanded=\"false\">
                                 Shop
                             </a>
                             <ul class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
@@ -280,6 +280,6 @@ class __TwigTemplate_ee398f9c1ba635a18f91154797963de3 extends Template
 
     </body>
 </html>
-", "base.html.twig", "/Users/depairegabin/Documents/hellorse/hellorse_exo/templates/base.html.twig");
+", "base.html.twig", "/Users/depairegabin/Documents/hellorse/exo-symfony/repository/templates/base.html.twig");
     }
 }

@@ -58,157 +58,145 @@ class __TwigTemplate_4a911bb08440fd757e6a734390350739 extends Template
         // line 4
         echo "
 <style>
-    .pagination {
-        justify-content: center;
+    .pagination > .active > a {
+        color: white;
+        background: #afafaf;
     }
-
-    .pagination > span {
-        padding: 10px;
-        background: #d5d3d3;
-        margin: 14px;
-    }
-
-    .pagination > span.current {
-        border: 1px solid;
-    }
-
-    .pagination > span > a {
-        color: black;
-        text-decoration: none;
-    }
-
 </style>
 
 <div style=\"margin-top: 50px;\" class=\"container\">
     ";
-        // line 31
+        // line 16
         echo "
 
     <div style=\"margin-top: 100px; width: 80%; margin-bottom: 30px\" class=\"mx-auto\">
         <div style=\"text-align: center; margin-bottom: 50px\">
             <h3>Boutique</h3>
             ";
-        // line 36
-        if (((array_key_exists("search", $context)) ? (_twig_default_filter((isset($context["search"]) || array_key_exists("search", $context) ? $context["search"] : (function () { throw new RuntimeError('Variable "search" does not exist.', 36, $this->source); })()))) : (""))) {
-            // line 37
+        // line 21
+        if (((array_key_exists("search", $context)) ? (_twig_default_filter((isset($context["search"]) || array_key_exists("search", $context) ? $context["search"] : (function () { throw new RuntimeError('Variable "search" does not exist.', 21, $this->source); })()))) : (""))) {
+            // line 22
             echo "            <p>Recherche les articles contenant : ";
-            echo twig_escape_filter($this->env, (isset($context["string"]) || array_key_exists("string", $context) ? $context["string"] : (function () { throw new RuntimeError('Variable "string" does not exist.', 37, $this->source); })()), "html", null, true);
+            echo twig_escape_filter($this->env, (isset($context["string"]) || array_key_exists("string", $context) ? $context["string"] : (function () { throw new RuntimeError('Variable "string" does not exist.', 22, $this->source); })()), "html", null, true);
             echo " </p>
             ";
         }
-        // line 39
+        // line 24
         echo "        </div>
         <div class=\"row\">
             ";
-        // line 41
-        if (((array_key_exists("search", $context)) ? (_twig_default_filter((isset($context["search"]) || array_key_exists("search", $context) ? $context["search"] : (function () { throw new RuntimeError('Variable "search" does not exist.', 41, $this->source); })()))) : (""))) {
-            // line 42
+        // line 26
+        if (((array_key_exists("search", $context)) ? (_twig_default_filter((isset($context["search"]) || array_key_exists("search", $context) ? $context["search"] : (function () { throw new RuntimeError('Variable "search" does not exist.', 26, $this->source); })()))) : (""))) {
+            // line 27
             echo "            <div class=\"mb-4\">
                 <a href=\"";
-            // line 43
+            // line 28
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("shop");
             echo "\">Retour à la boutique</a>
             </div>
             ";
         }
-        // line 46
+        // line 31
         echo "
-            <form method=\"GET\" action=\"";
-        // line 47
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("recherche.categorie", ["name" => (isset($context["string"]) || array_key_exists("string", $context) ? $context["string"] : (function () { throw new RuntimeError('Variable "string" does not exist.', 47, $this->source); })())]), "html", null, true);
-        echo "\">
+            ";
+        // line 32
+        if (((array_key_exists("string", $context)) ? (_twig_default_filter((isset($context["string"]) || array_key_exists("string", $context) ? $context["string"] : (function () { throw new RuntimeError('Variable "string" does not exist.', 32, $this->source); })()))) : (""))) {
+            // line 33
+            echo "            <form method=\"GET\" action=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("recherche.categorie", ["name" => (isset($context["string"]) || array_key_exists("string", $context) ? $context["string"] : (function () { throw new RuntimeError('Variable "string" does not exist.', 33, $this->source); })())]), "html", null, true);
+            echo "\">
 
             <div style=\"display: flex\">
             ";
-        // line 50
-        if (((isset($context["string"]) || array_key_exists("string", $context) ? $context["string"] : (function () { throw new RuntimeError('Variable "string" does not exist.', 50, $this->source); })()) == "Tee Shirt")) {
-            // line 51
-            echo "                ";
-            $context["tailles"] = [0 => "XS", 1 => "S", 2 => "M", 3 => "L", 4 => "XL"];
-            // line 52
-            echo "            ";
-        } else {
-            // line 53
-            echo "                ";
-            $context["tailles"] = [0 => "38", 1 => "39", 2 => "40", 3 => "41", 4 => "42", 5 => "43", 6 => "44", 7 => "45", 8 => "46"];
-            // line 54
-            echo "            ";
-        }
-        echo "   
+            // line 36
+            if (((isset($context["string"]) || array_key_exists("string", $context) ? $context["string"] : (function () { throw new RuntimeError('Variable "string" does not exist.', 36, $this->source); })()) == "Tee Shirt")) {
+                // line 37
+                echo "                ";
+                $context["tailles"] = [0 => "XS", 1 => "S", 2 => "M", 3 => "L", 4 => "XL"];
+                // line 38
+                echo "            ";
+            } else {
+                // line 39
+                echo "                ";
+                $context["tailles"] = [0 => "38", 1 => "39", 2 => "40", 3 => "41", 4 => "42", 5 => "43", 6 => "44", 7 => "45", 8 => "46"];
+                // line 40
+                echo "            ";
+            }
+            echo "   
 
             ";
-        // line 56
-        $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["tailles"]) || array_key_exists("tailles", $context) ? $context["tailles"] : (function () { throw new RuntimeError('Variable "tailles" does not exist.', 56, $this->source); })()));
-        foreach ($context['_seq'] as $context["_key"] => $context["taille"]) {
-            // line 57
-            echo "            <div style=\"max-width: 100px\" class=\"input-group mb-3\">
+            // line 42
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["tailles"]) || array_key_exists("tailles", $context) ? $context["tailles"] : (function () { throw new RuntimeError('Variable "tailles" does not exist.', 42, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["taille"]) {
+                // line 43
+                echo "            <div style=\"max-width: 100px\" class=\"input-group mb-3\">
                 <div class=\"input-group-text\">
                     <label style=\"margin-right: 10px\">";
-            // line 59
-            echo twig_escape_filter($this->env, $context["taille"], "html", null, true);
-            echo "</label>
+                // line 45
+                echo twig_escape_filter($this->env, $context["taille"], "html", null, true);
+                echo "</label>
 
                     <input name=\"tailles[]\" class=\"form-check-input mt-0\" type=\"checkbox\" value=\"";
-            // line 61
-            echo twig_escape_filter($this->env, $context["taille"], "html", null, true);
-            echo "\" aria-label=\"Checkbox for following text input\">
+                // line 47
+                echo twig_escape_filter($this->env, $context["taille"], "html", null, true);
+                echo "\" aria-label=\"Checkbox for following text input\">
                 </div>
             </div>
             ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['taille'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 65
-        echo "
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['taille'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 51
+            echo "
             <div style=\"max-width: 100px\" class=\"input-group mb-3\">
                 <button type=\"submit\" class=\"btn btn-primary\">Rechercher</button>
             </div>         
             </div>
             </form>
-
+            ";
+        }
+        // line 58
+        echo "
 
             ";
-        // line 73
+        // line 60
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 73, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 60, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["product"]) {
-            // line 74
-            echo "            ";
-            if (((((array_key_exists("tailles_filter", $context)) ? (_twig_default_filter((isset($context["tailles_filter"]) || array_key_exists("tailles_filter", $context) ? $context["tailles_filter"] : (function () { throw new RuntimeError('Variable "tailles_filter" does not exist.', 74, $this->source); })()))) : ("")) && (twig_length_filter($this->env, twig_array_filter($this->env, (isset($context["tailles_filter"]) || array_key_exists("tailles_filter", $context) ? $context["tailles_filter"] : (function () { throw new RuntimeError('Variable "tailles_filter" does not exist.', 74, $this->source); })()), function ($__taille__) use ($context, $macros) { $context["taille"] = $__taille__; return twig_in_filter((isset($context["taille"]) || array_key_exists("taille", $context) ? $context["taille"] : (function () { throw new RuntimeError('Variable "taille" does not exist.', 74, $this->source); })()), twig_get_attribute($this->env, $this->source, $context["product"], "getTailles", [], "any", false, false, false, 74)); })) > 0)) ||  !((array_key_exists("tailles_filter", $context)) ? (_twig_default_filter((isset($context["tailles_filter"]) || array_key_exists("tailles_filter", $context) ? $context["tailles_filter"] : (function () { throw new RuntimeError('Variable "tailles_filter" does not exist.', 74, $this->source); })()))) : ("")))) {
-                // line 75
-                echo "            <div class=\"col-4 mb-4\">
+            // line 61
+            echo "            <div class=\"col-4 mb-4\">
                 <div class=\"card\" style=\"width: 18rem;\">
                     <img class=\"card-img-top\" src=\"";
-                // line 77
-                echo twig_escape_filter($this->env, ($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("uploads/") . twig_get_attribute($this->env, $this->source, $context["product"], "getImage", [], "any", false, false, false, 77)), "html", null, true);
-                echo "\" alt=\"Card image cap\">
+            // line 63
+            echo twig_escape_filter($this->env, ($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("uploads/") . twig_get_attribute($this->env, $this->source, $context["product"], "getImage", [], "any", false, false, false, 63)), "html", null, true);
+            echo "\" alt=\"Card image cap\">
                     <div class=\"card-body\">
                         <h5 class=\"card-title\">";
-                // line 79
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "getTitle", [], "method", false, false, false, 79), "html", null, true);
-                echo "</h5>
+            // line 65
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "getTitle", [], "method", false, false, false, 65), "html", null, true);
+            echo "</h5>
                         <p class=\"card-text\">";
-                // line 80
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "getDescription", [], "method", false, false, false, 80), "html", null, true);
-                echo "</p>
+            // line 66
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "getDescription", [], "method", false, false, false, 66), "html", null, true);
+            echo "</p>
                         <p class=\"card-text\">";
-                // line 81
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "getPrice", [], "method", false, false, false, 81), "html", null, true);
-                echo " €</p>
+            // line 67
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["product"], "getPrice", [], "method", false, false, false, 67), "html", null, true);
+            echo " €</p>
                         <div style=\"display: grid\">
                         <span class=\"mb-2\">
                             Tailles : ";
-                // line 84
-                echo twig_escape_filter($this->env, twig_join_filter(twig_get_attribute($this->env, $this->source, $context["product"], "getTailles", [], "any", false, false, false, 84), ", "), "html", null, true);
-                echo "
+            // line 70
+            echo twig_escape_filter($this->env, twig_join_filter(twig_get_attribute($this->env, $this->source, $context["product"], "getTailles", [], "any", false, false, false, 70), ", "), "html", null, true);
+            echo "
                         </span>
                         <span>
                             ";
-                // line 87
-                echo twig_escape_filter($this->env, twig_join_filter(twig_get_attribute($this->env, $this->source, $context["product"], "getKeyWords", [], "any", false, false, false, 87), ", "), "html", null, true);
-                echo "
+            // line 73
+            echo twig_escape_filter($this->env, twig_join_filter(twig_get_attribute($this->env, $this->source, $context["product"], "getKeyWords", [], "any", false, false, false, 73), ", "), "html", null, true);
+            echo "
                         </span>                        
                         </div>
 
@@ -216,28 +204,23 @@ class __TwigTemplate_4a911bb08440fd757e6a734390350739 extends Template
                 </div>
             </div>
             ";
-            }
-            // line 95
-            echo "
-
-            ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 98
+        // line 81
         echo "
         </div>
         ";
-        // line 100
-        if ( !((array_key_exists("tailles_filter", $context)) ? (_twig_default_filter((isset($context["tailles_filter"]) || array_key_exists("tailles_filter", $context) ? $context["tailles_filter"] : (function () { throw new RuntimeError('Variable "tailles_filter" does not exist.', 100, $this->source); })()))) : (""))) {
-            // line 101
+        // line 83
+        if ( !((array_key_exists("tailles_filter", $context)) ? (_twig_default_filter((isset($context["tailles_filter"]) || array_key_exists("tailles_filter", $context) ? $context["tailles_filter"] : (function () { throw new RuntimeError('Variable "tailles_filter" does not exist.', 83, $this->source); })()))) : (""))) {
+            // line 84
             echo "        ";
-            echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 101, $this->source); })()));
+            echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["products"]) || array_key_exists("products", $context) ? $context["products"] : (function () { throw new RuntimeError('Variable "products" does not exist.', 84, $this->source); })()));
             echo "
         ";
         }
-        // line 103
+        // line 86
         echo "    </div>
 
 
@@ -261,7 +244,7 @@ class __TwigTemplate_4a911bb08440fd757e6a734390350739 extends Template
 
     public function getDebugInfo()
     {
-        return array (  241 => 103,  235 => 101,  233 => 100,  229 => 98,  221 => 95,  210 => 87,  204 => 84,  198 => 81,  194 => 80,  190 => 79,  185 => 77,  181 => 75,  178 => 74,  174 => 73,  164 => 65,  154 => 61,  149 => 59,  145 => 57,  141 => 56,  135 => 54,  132 => 53,  129 => 52,  126 => 51,  124 => 50,  118 => 47,  115 => 46,  109 => 43,  106 => 42,  104 => 41,  100 => 39,  94 => 37,  92 => 36,  85 => 31,  59 => 4,  52 => 3,  35 => 1,);
+        return array (  224 => 86,  218 => 84,  216 => 83,  212 => 81,  198 => 73,  192 => 70,  186 => 67,  182 => 66,  178 => 65,  173 => 63,  169 => 61,  165 => 60,  161 => 58,  152 => 51,  142 => 47,  137 => 45,  133 => 43,  129 => 42,  123 => 40,  120 => 39,  117 => 38,  114 => 37,  112 => 36,  105 => 33,  103 => 32,  100 => 31,  94 => 28,  91 => 27,  89 => 26,  85 => 24,  79 => 22,  77 => 21,  70 => 16,  59 => 4,  52 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -271,25 +254,10 @@ class __TwigTemplate_4a911bb08440fd757e6a734390350739 extends Template
 {% block body %}
 
 <style>
-    .pagination {
-        justify-content: center;
+    .pagination > .active > a {
+        color: white;
+        background: #afafaf;
     }
-
-    .pagination > span {
-        padding: 10px;
-        background: #d5d3d3;
-        margin: 14px;
-    }
-
-    .pagination > span.current {
-        border: 1px solid;
-    }
-
-    .pagination > span > a {
-        color: black;
-        text-decoration: none;
-    }
-
 </style>
 
 <div style=\"margin-top: 50px;\" class=\"container\">
@@ -312,6 +280,7 @@ class __TwigTemplate_4a911bb08440fd757e6a734390350739 extends Template
             </div>
             {% endif %}
 
+            {% if (string|default) %}
             <form method=\"GET\" action=\"{{ path('recherche.categorie', {name: string}) }}\">
 
             <div style=\"display: flex\">
@@ -336,10 +305,10 @@ class __TwigTemplate_4a911bb08440fd757e6a734390350739 extends Template
             </div>         
             </div>
             </form>
+            {% endif %}
 
 
             {% for product in products %}
-            {% if  tailles_filter|default and tailles_filter |filter((taille) => taille in product.getTailles) | length > 0 or not tailles_filter|default %}
             <div class=\"col-4 mb-4\">
                 <div class=\"card\" style=\"width: 18rem;\">
                     <img class=\"card-img-top\" src=\"{{ asset('uploads/') ~ product.getImage }}\" alt=\"Card image cap\">
@@ -359,9 +328,6 @@ class __TwigTemplate_4a911bb08440fd757e6a734390350739 extends Template
                     </div>
                 </div>
             </div>
-            {% endif %}
-
-
             {% endfor %}
 
         </div>
@@ -373,6 +339,6 @@ class __TwigTemplate_4a911bb08440fd757e6a734390350739 extends Template
 
 </div>
 
-{% endblock %}", "shop.html.twig", "/Users/depairegabin/Documents/hellorse/exo-symfony/hellorse_exo/templates/shop.html.twig");
+{% endblock %}", "shop.html.twig", "/Users/depairegabin/Documents/hellorse/exo-symfony/repository/templates/shop.html.twig");
     }
 }

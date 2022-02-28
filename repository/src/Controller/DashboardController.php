@@ -50,7 +50,6 @@ class DashboardController extends AbstractController
     #[Route('/dashboard/create', name: 'dashboard.create')]
     public function add(Request $request): Response
     {
-        $id = $request->get("id");
         $product = new Product();
 
         if ($request->isMethod('post')) {
@@ -76,6 +75,11 @@ class DashboardController extends AbstractController
             $product->setPrice($request->get('price'));
             $product->setCategorie($request->get('categorie'));
             $product->setTailles($request->get('tailleTeeShirt'));
+
+            if ($request->get('tags')) {
+                $arr_tags = explode(',', $request->get('tags'));
+                $product->setKeyWords($arr_tags);
+            }
 
             $this->em->persist($product);
             $this->em->flush();

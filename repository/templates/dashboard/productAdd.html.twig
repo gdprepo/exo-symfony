@@ -62,6 +62,17 @@
             <option value="46">46</option>
         </select>
 
+        <div class="mt-4" style="display: flex; align-items: center;">
+            <div style="width: 100%" class="input-group-prepend">
+                <span style="height: 100%" class="input-group-text">Keywords :
+                {{ product.getKeywords|join(', ') }}
+                </span>
+
+                <input name="tags" placeholder="write some tags" value="{{ product.getKeywords|join(', ') }}">
+            </div>
+
+        </div>
+
         <button style="width: 100%" type="submit" class="btn btn-success mt-4">Confirmer</button>
     </form>
 
@@ -81,6 +92,12 @@
             $('#sizeTeeShirt').hide();
             $('#sizeShoes').show();
         }
+    });
+
+    var input = document.querySelector('input[name=tags]'),
+
+    tagify = new Tagify( input, {
+        originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(',')
     });
 
 </script>

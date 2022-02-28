@@ -133,6 +133,23 @@ class __TwigTemplate_dd282263d85749f005f0639d31127fa6 extends Template
             <option value=\"46\">46</option>
         </select>
 
+        <div class=\"mt-4\" style=\"display: flex; align-items: center;\">
+            <div style=\"width: 100%\" class=\"input-group-prepend\">
+                <span style=\"height: 100%\" class=\"input-group-text\">Keywords :
+                ";
+        // line 68
+        echo twig_escape_filter($this->env, twig_join_filter(twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 68, $this->source); })()), "getKeywords", [], "any", false, false, false, 68), ", "), "html", null, true);
+        echo "
+                </span>
+
+                <input name=\"tags\" placeholder=\"write some tags\" value=\"";
+        // line 71
+        echo twig_escape_filter($this->env, twig_join_filter(twig_get_attribute($this->env, $this->source, (isset($context["product"]) || array_key_exists("product", $context) ? $context["product"] : (function () { throw new RuntimeError('Variable "product" does not exist.', 71, $this->source); })()), "getKeywords", [], "any", false, false, false, 71), ", "), "html", null, true);
+        echo "\">
+            </div>
+
+        </div>
+
         <button style=\"width: 100%\" type=\"submit\" class=\"btn btn-success mt-4\">Confirmer</button>
     </form>
 
@@ -145,14 +162,14 @@ class __TwigTemplate_dd282263d85749f005f0639d31127fa6 extends Template
 
     }
 
-    // line 73
+    // line 84
     public function block_script($context, array $blocks = [])
     {
         $macros = $this->macros;
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "script"));
 
-        // line 74
+        // line 85
         echo "
 <script>
     \$('#selectCategorie').on('change', function() {
@@ -163,6 +180,12 @@ class __TwigTemplate_dd282263d85749f005f0639d31127fa6 extends Template
             \$('#sizeTeeShirt').hide();
             \$('#sizeShoes').show();
         }
+    });
+
+    var input = document.querySelector('input[name=tags]'),
+
+    tagify = new Tagify( input, {
+        originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(',')
     });
 
 </script>
@@ -185,7 +208,7 @@ class __TwigTemplate_dd282263d85749f005f0639d31127fa6 extends Template
 
     public function getDebugInfo()
     {
-        return array (  156 => 74,  149 => 73,  80 => 10,  74 => 6,  67 => 5,  54 => 3,  37 => 1,);
+        return array (  173 => 85,  166 => 84,  147 => 71,  141 => 68,  80 => 10,  74 => 6,  67 => 5,  54 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -254,6 +277,17 @@ class __TwigTemplate_dd282263d85749f005f0639d31127fa6 extends Template
             <option value=\"46\">46</option>
         </select>
 
+        <div class=\"mt-4\" style=\"display: flex; align-items: center;\">
+            <div style=\"width: 100%\" class=\"input-group-prepend\">
+                <span style=\"height: 100%\" class=\"input-group-text\">Keywords :
+                {{ product.getKeywords|join(', ') }}
+                </span>
+
+                <input name=\"tags\" placeholder=\"write some tags\" value=\"{{ product.getKeywords|join(', ') }}\">
+            </div>
+
+        </div>
+
         <button style=\"width: 100%\" type=\"submit\" class=\"btn btn-success mt-4\">Confirmer</button>
     </form>
 
@@ -275,10 +309,16 @@ class __TwigTemplate_dd282263d85749f005f0639d31127fa6 extends Template
         }
     });
 
+    var input = document.querySelector('input[name=tags]'),
+
+    tagify = new Tagify( input, {
+        originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(',')
+    });
+
 </script>
 
 {% endblock %}
 
-", "dashboard/productAdd.html.twig", "/Users/depairegabin/Documents/hellorse/hellorse_exo/templates/dashboard/productAdd.html.twig");
+", "dashboard/productAdd.html.twig", "/Users/depairegabin/Documents/hellorse/exo-symfony/repository/templates/dashboard/productAdd.html.twig");
     }
 }
