@@ -29,11 +29,11 @@
             </div>
             {% endif %}
 
-            {% if (string|default) %}
+            {% if (string|default and not search|default) %}
             <form method="GET" action="{{ path('recherche.categorie', {name: string}) }}">
 
             <div style="display: flex">
-            {% if string == "Tee Shirt" %}
+            {% if string == "T-shirts" %}
                 {% set tailles = ['XS', 'S', 'M', 'L' ,'XL'] %}
             {% else %}
                 {% set tailles = ['38', '39', '40', '41', '42', '43', '44', '45', '46'] %}

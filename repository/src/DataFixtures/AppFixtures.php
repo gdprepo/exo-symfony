@@ -20,7 +20,7 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $categories = array(
-            'Tee Shirt',
+            'T-shirts',
             'Chaussure',
         );
         
@@ -34,7 +34,7 @@ class AppFixtures extends Fixture
             $product->setCategorie($categorie);
             $product->setDescription("Description...");
 
-            if ($categorie === "Tee Shirt") {
+            if ($categorie === "T-shirts") {
                 $product->setTailles(['XS', 'XL']);
                 $product->setImage("teeshirt-img-exemple.webp");
             } else {

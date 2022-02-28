@@ -5,8 +5,105 @@
 {% block body %}
 
 <div style="width: 50%; margin-top: 50px" class="container">
-    <h3>Modifier le produit #{{ product.getId }}<h3>
+    {% if product.getId %}
+    <h3>Modifier le produit #{{product.getId}}<h3>
+    {% else %}
+    <h3>Creer ue produit<h3>
 
+    {% endif %}
+
+    {{ form_start(formProduct) }}
+    
+        <div class="mt-4" style="align-items: center;">
+            <label>Titre :</label>
+            {{ form_widget(formProduct.Title) }}
+        </div>
+        <div class="mt-4" style="align-items: center;">
+            <label>Prix :</label>
+            <select id="selectCategorie" name="Categorie" class="form-select" aria-label="Default select example">
+                <option value="T-shirts" selected>T-shirts</option>
+                <option value="Chaussure">Chaussure</option>
+            </select>
+        </div>
+
+        <div class="mt-4" style="display: flex; align-items: center;">
+            <div style="width: 100%" class="input-group-prepend">
+                <span style="height: 100%" class="input-group-text">Taille :
+                {% if product.getTailles|default %}
+                {{ product.getTailles|join(', ') }}
+                {% endif %}
+                </span>
+
+                <select id="sizeTeeShirt" name="Tailles[]" class="form-select" multiple aria-label="multiple select example">
+                    <option value="XS">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XS">XL</option>
+                </select>
+
+                <select id="sizeShoes" name="Tailles[]" style="display: none" class="form-select" multiple aria-label="multiple select example">
+                    <option value="38">38</option>
+                    <option value="39">39</option>
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                    <option value="44">44</option>
+                    <option value="45">45</option>
+                    <option value="46">46</option>
+                </select>
+            
+            </div>
+
+        </div>
+
+        <div class="mt-4" style="display: flex; align-items: center;">
+            <div style="width: 100%" class="input-group-prepend">
+                <span style="height: 100%" class="input-group-text">Keywords :
+                {% if product.getKeywords|default %}
+                {{ product.getKeywords|join(', ') }}
+                {% endif %}
+                </span>
+
+                <input name="Keywords" placeholder="write some tags" value="
+                {% if product.getKeywords|default %}
+                {{ product.getKeywords|join(', ') }}
+                {% endif %}">
+            </div>
+
+        </div>
+
+        <div class="mt-4" style="display: flex; align-items: center;">
+            {% if product.getImage|default %}
+            <img style="width: 50%; max-width: 150px" src="{{ asset('uploads/') ~ product.getImage }}">
+            {% endif %}
+
+            <div class="input-group mb-3 p-4">
+                {% if product.getImage|default %}
+                {{ form_widget(formProduct.Image, {"required": false}) }}
+                {% else %}
+                {{ form_widget(formProduct.Image, {"required": true}) }}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="mt-4" style="align-items: center;">
+        <label>Prix :</label>
+        {{ form_widget(formProduct.Price) }}
+
+        </div>
+
+        <div class="mt-4" style="align-items: center;">
+        <label>Description :</label>
+        {{ form_widget(formProduct.Description) }}
+
+        </div>
+
+        <button style="width: 100%" name="save" type="submit" class="btn btn-primary mt-4">Confimer</button>
+
+    {{ form_end(formProduct) }}
+{# 
     <form action="{{ path('dashboard.edit', {id: id}) }}" enctype="multipart/form-data" method="POST">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -43,12 +140,11 @@
                 {{ product.getTailles|join(', ') }}
                 </span>
 
-                {# <input name="tailles" placeholder="write some tags" value="{{ product.getTailles|join(', ') }}"> #}
-            <select name="tailles[]" class="form-select" multiple aria-label="multiple select example">
-                {% for size in sizes %}
-                <option value="{{size}}">{{size}}</option>
-                {% endfor %}
-            </select>
+                <select name="tailles[]" class="form-select" multiple aria-label="multiple select example">
+                    {% for size in sizes %}
+                    <option value="{{size}}">{{size}}</option>
+                    {% endfor %}
+                </select>
             
             </div>
 
@@ -67,7 +163,7 @@
 
 
         <button style="width: 100%" type="submit" class="btn btn-success mt-4">Confirmer</button>
-    </form>
+    </form> #}
 
 </div>
 
@@ -78,7 +174,17 @@
 
 <script>
 
-    var input = document.querySelector('input[name=tags]'),
+    $('#selectCategorie').on('change', function() {
+        if (this.value === "T-shirts") {
+            $('#sizeTeeShirt').show();
+            $('#sizeShoes').hide();
+        } else {
+            $('#sizeTeeShirt').hide();
+            $('#sizeShoes').show();
+        }
+    });
+
+    var input = document.querySelector('input[name=Keywords]'),
 
     tagify = new Tagify( input, {
         originalInputValueFormat: valuesArr => valuesArr.map(item => item.value).join(',')

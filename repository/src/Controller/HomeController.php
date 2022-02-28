@@ -23,7 +23,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'home')]
     public function index(): Response
     {
-        $teeShirts = $this->repository->findByCategorie("Tee Shirt");
+        $teeShirts = $this->repository->findByCategorie("T-shirts");
         $shoes = $this->repository->findByCategorie("Chaussure");
 
 

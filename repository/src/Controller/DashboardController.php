@@ -3,14 +3,21 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Form\ProductType;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\Form\Forms;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class DashboardController extends AbstractController
 {
@@ -47,75 +54,114 @@ class DashboardController extends AbstractController
         return $this->redirectToRoute('dashboard');
     }
 
+    // #[Route('/dashboard/create', name: 'dashboard.create')]
+    // public function add(Request $request): Response
+    // {
+    //     $id = $request->get('id');
+    //     $product = new Product();
+
+    //     if ($request->isMethod('post')) {
+    //         if ($request->get('title')) {
+    //             $product->setTitle($request->get('title'));
+    //         }
+
+    //         if ($request->get('description')) {
+    //             $product->setDescription($request->get('description'));
+    //         }
+
+    //         $file = $request->files->get('image');
+    //         $uploads_directory = $this->getParameter('upload_directory');
+
+    //         $filename = md5(uniqid()) . '.' . $file->guessExtension();
+
+    //         $file->move(
+    //             $uploads_directory,
+    //             $filename
+    //         );
+
+    //         $product->setImage($filename);
+    //         $product->setPrice($request->get('price'));
+    //         $product->setCategorie($request->get('categorie'));
+    //         $product->setTailles($request->get('tailleTeeShirt'));
+
+    //         if ($request->get('tags')) {
+    //             $arr_tags = explode(',', $request->get('tags'));
+    //             $product->setKeyWords($arr_tags);
+    //         }
+
+    //         $this->em->persist($product);
+    //         $this->em->flush();
+
+    //         $this->addFlash("success", "Le produit à bien été créé !");
+    //         return $this->redirectToRoute('dashboard');
+    //     }
+
+    //     return $this->render('dashboard/productAdd.html.twig', [
+    //         'id' => $id,
+    //         'product' => $product
+    //     ]);
+    // }
+
     #[Route('/dashboard/create', name: 'dashboard.create')]
-    public function add(Request $request): Response
+    #[Route('/dashboard/{id}/edit', name: 'dashboard.edit')]
+    public function edit(int $id = null, Request $request, SluggerInterface $slugger): Response
     {
-        $product = new Product();
-
-        if ($request->isMethod('post')) {
-            if ($request->get('title')) {
-                $product->setTitle($request->get('title'));
+        // $id = $request->get("id");
+        if ($id !== null) {
+            $product = $this->repository->findOneBy(array('id'=>$id));
+            if ($product->getCategorie() == "Tee Shirt") {
+                $sizes = ["XS", "S", "M", "L", "XL"];
+            } else {
+                $sizes = ["38", "39", "40", "41", "42", "43", "44", "45", "46"];
             }
-
-            if ($request->get('description')) {
-                $product->setDescription($request->get('description'));
-            }
-
-            $file = $request->files->get('image');
-            $uploads_directory = $this->getParameter('upload_directory');
-
-            $filename = md5(uniqid()) . '.' . $file->guessExtension();
-
-            $file->move(
-                $uploads_directory,
-                $filename
-            );
-
-            $product->setImage($filename);
-            $product->setPrice($request->get('price'));
-            $product->setCategorie($request->get('categorie'));
-            $product->setTailles($request->get('tailleTeeShirt'));
-
-            if ($request->get('tags')) {
-                $arr_tags = explode(',', $request->get('tags'));
-                $product->setKeyWords($arr_tags);
-            }
-
-            $this->em->persist($product);
-            $this->em->flush();
-
-            $this->addFlash("success", "Le produit à bien été créé !");
-            return $this->redirectToRoute('dashboard');
+        } else {
+            // $formFactory = $this->createForm(ProductType::class);
+            $product = new Product();
         }
 
-        return $this->render('dashboard/productAdd.html.twig', [
-            'id' => $id,
-            'product' => $product
-        ]);
-    }
+        $formFactory = $this->createForm(ProductType::class, $product);
 
-    #[Route('/dashboard/edit/{id}', name: 'dashboard.edit')]
-    public function edit(Request $request): Response
-    {
-        $id = $request->get("id");
-        $product = $this->repository->findOneBy(array('id'=>$id));
+        $formFactory->handleRequest($request);
 
-        if ($request->isMethod('post')) {
-            if ($request->get('title')) {
-                $product->setTitle($request->get('title'));
+        if ($formFactory->isSubmitted() && $formFactory->isValid()) {
+            if (!$product->getId()) {
+                $product->setCreatedAt(new \Datetime());
             }
 
-            if ($request->get('description')) {
-                $product->setTitle($request->get('title'));
+            if ($request->get('Categorie')) {
+                $product->setCategorie($request->get('Categorie'));
             }
 
-            if ($request->get('tags')) {
-                $arr_tags = explode(',', $request->get('tags'));
+            if ($request->get('Keywords')) {
+                $arr_tags = explode(',', $request->get('Keywords'));
                 $product->setKeyWords($arr_tags);
             }
 
-            if ($request->get('tailles')) {
-                $product->setTailles($request->get('tailles'));
+            if ($request->get('Tailles')) {
+                $product->setTailles($request->get('Tailles'));
+            }
+
+            $imageFile = $formFactory->get('Image')->getData();
+
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                // Move the file to the directory where brochures are stored
+                try {
+                    $imageFile->move(
+                        $this->getParameter('upload_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    // ... handle exception if something happens during file upload
+                }
+
+                // updates the 'imageFilename' property to store the PDF file name
+                // instead of its contents
+                $product->setImage($newFilename);
             }
 
             $this->em->persist($product);
@@ -125,17 +171,20 @@ class DashboardController extends AbstractController
             return $this->redirectToRoute('dashboard');
         }
 
-        if ($product->getCategorie() == "Tee Shirt") {
-            $sizes = ["XS", "S", "M", "L", "XL"];
+        if (isset($sizes)) {
+            $params = [
+                'product' => $product,
+                'sizes' => $sizes,
+                'formProduct' => $formFactory->createView()
+            ];
         } else {
-            $sizes = ["38", "39", "40", "41", "42", "43", "44", "45", "46"];
-
+            $params = [
+                'product' => $product,
+                'formProduct' => $formFactory->createView()
+            ];
         }
 
-        return $this->render('dashboard/productEdit.html.twig', [
-            'id' => $id,
-            'product' => $product,
-            'sizes' => $sizes
-        ]);
+
+        return $this->render('dashboard/productEdit.html.twig', $params);
     }
 }

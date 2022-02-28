@@ -7,8 +7,13 @@ use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping\GeneratedValue;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[ApiResource([
+    "collectionOperations" => ["get"],
+    "itemOperations" => ["get"],
+])]
 class Product
 {
     #[ORM\Id]
