@@ -145,6 +145,6 @@ class __TwigTemplate_d2c60f777b8bc41a76ac6f25a1b8d10e extends Template
     {{ form_end(registrationForm) }}
 </div>
 {% endblock %}
-", "registration/register.html.twig", "/Users/depairegabin/Documents/hellorse/exo-symfony/hellorse_exo/templates/registration/register.html.twig");
+", "registration/register.html.twig", "/Users/depairegabin/Documents/hellorse/git/exo-symfony/repository/templates/registration/register.html.twig");
     }
 }

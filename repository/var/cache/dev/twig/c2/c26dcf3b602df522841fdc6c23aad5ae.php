@@ -324,6 +324,6 @@ class __TwigTemplate_67ff582dc313640bd9455af2c944a360 extends Template
         </ul>
     </nav>
 {% endif %}
-", "@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig", "/Users/depairegabin/Documents/hellorse/hellorse_exo/vendor/knplabs/knp-paginator-bundle/templates/Pagination/twitter_bootstrap_v4_pagination.html.twig");
+", "@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig", "/Users/depairegabin/Documents/hellorse/git/exo-symfony/repository/vendor/knplabs/knp-paginator-bundle/templates/Pagination/twitter_bootstrap_v4_pagination.html.twig");
     }
 }

@@ -75,6 +75,6 @@ class __TwigTemplate_3400afecba5ea01d3ec995c4ea268fb4 extends Template
  */
 #}
 {% extends '@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig' %}
-", "@KnpPaginator/Pagination/bootstrap_v5_pagination.html.twig", "/Users/depairegabin/Documents/hellorse/hellorse_exo/vendor/knplabs/knp-paginator-bundle/templates/Pagination/bootstrap_v5_pagination.html.twig");
+", "@KnpPaginator/Pagination/bootstrap_v5_pagination.html.twig", "/Users/depairegabin/Documents/hellorse/git/exo-symfony/repository/vendor/knplabs/knp-paginator-bundle/templates/Pagination/bootstrap_v5_pagination.html.twig");
     }
 }

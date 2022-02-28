@@ -339,6 +339,6 @@ class __TwigTemplate_4a911bb08440fd757e6a734390350739 extends Template
 
 </div>
 
-{% endblock %}", "shop.html.twig", "/Users/depairegabin/Documents/hellorse/exo-symfony/repository/templates/shop.html.twig");
+{% endblock %}", "shop.html.twig", "/Users/depairegabin/Documents/hellorse/git/exo-symfony/repository/templates/shop.html.twig");
     }
 }

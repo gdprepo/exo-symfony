@@ -39,7 +39,6 @@ class ProductRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('a')
            ->where('a.title LIKE :search')
-           ->orWhere('a.Description LIKE :search')
            ->orWhere('a.Categorie LIKE :search')
            ->orWhere('a.Keywords LIKE :search')
            ->setParameter('search', '%'.$string.'%')

@@ -199,9 +199,6 @@ class __TwigTemplate_6d9c6b963eb569017e4b8d04c4c44640 extends Template
         echo "
 <script>
 
-\t";
-        // line 82
-        echo "
     var input = document.querySelector('input[name=tags]'),
 
     tagify = new Tagify( input, {
@@ -232,7 +229,7 @@ class __TwigTemplate_6d9c6b963eb569017e4b8d04c4c44640 extends Template
 
     public function getDebugInfo()
     {
-        return array (  204 => 82,  199 => 78,  192 => 77,  172 => 63,  166 => 60,  155 => 51,  144 => 49,  140 => 48,  137 => 47,  131 => 43,  121 => 36,  108 => 26,  101 => 22,  91 => 15,  83 => 10,  78 => 8,  74 => 6,  67 => 5,  54 => 3,  37 => 1,);
+        return array (  199 => 78,  192 => 77,  172 => 63,  166 => 60,  155 => 51,  144 => 49,  140 => 48,  137 => 47,  131 => 43,  121 => 36,  108 => 26,  101 => 22,  91 => 15,  83 => 10,  78 => 8,  74 => 6,  67 => 5,  54 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -317,8 +314,6 @@ class __TwigTemplate_6d9c6b963eb569017e4b8d04c4c44640 extends Template
 
 <script>
 
-\t{# \$('[name=tags]').tagify(); #}
-
     var input = document.querySelector('input[name=tags]'),
 
     tagify = new Tagify( input, {
@@ -333,6 +328,6 @@ class __TwigTemplate_6d9c6b963eb569017e4b8d04c4c44640 extends Template
 </script>
 {% endblock %}
 
-", "dashboard/productEdit.html.twig", "/Users/depairegabin/Documents/hellorse/exo-symfony/hellorse_exo/templates/dashboard/productEdit.html.twig");
+", "dashboard/productEdit.html.twig", "/Users/depairegabin/Documents/hellorse/git/exo-symfony/repository/templates/dashboard/productEdit.html.twig");
     }
 }

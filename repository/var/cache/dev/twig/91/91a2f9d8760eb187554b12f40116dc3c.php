@@ -319,6 +319,6 @@ class __TwigTemplate_dd282263d85749f005f0639d31127fa6 extends Template
 
 {% endblock %}
 
-", "dashboard/productAdd.html.twig", "/Users/depairegabin/Documents/hellorse/exo-symfony/repository/templates/dashboard/productAdd.html.twig");
+", "dashboard/productAdd.html.twig", "/Users/depairegabin/Documents/hellorse/git/exo-symfony/repository/templates/dashboard/productAdd.html.twig");
     }
 }
