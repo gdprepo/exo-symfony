@@ -3,9 +3,13 @@
 Initialisation du projet :
 
 > Configuration du fichier .env "DATABASE_URL"
+> 
 > Dans le dossier repository lancer la commande "composer install"
+> 
 > Ensuite la commande "php bin/console make:migration", "php bin/console doctrine:migrations:migrate" et "php bin/console doctrine:fixtures:load"
+> 
 > Utiliser la commande "symfony server:start" pour lancer le server
+> 
 > Se rendre sur le lien http://127.0.0.1:8000/
 
 # Presentation du projet :
