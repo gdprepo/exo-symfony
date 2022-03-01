@@ -16,10 +16,14 @@ Initialisation du projet :
 
 Back
 > /login : permet de se connecter avec les identifiants ( test@gmail.com et password )
+> 
 > /register : pour créer un compte
+> 
 > /dashboard : pour ajouter supprimer ou modifier les produits
 
 Front
 > /shop : affiche les produits
+> 
 > /shop/Chaussure : affiche les chassure et permet de les filtrer en fonction des tailles
+> 
 > /recherche?search=art : recherche art dans le titre, la categorie, et les mots clés
