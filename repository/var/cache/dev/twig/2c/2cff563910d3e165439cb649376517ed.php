@@ -109,11 +109,17 @@ class __TwigTemplate_5c42011581ff8b8dd52d1509a1d6d792 extends Template
             echo "\">Dashboard</a>
                         </li>
                         ";
+        } else {
+            // line 46
+            echo "                        <li class=\"nav-item\">
+                            <a class=\"nav-link\" aria-current=\"page\" href=\"/login\">Login</a>
+                        </li>
+                        ";
         }
-        // line 46
+        // line 50
         echo "                    </ul>
                     <form action=\"";
-        // line 47
+        // line 51
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("recherche");
         echo "\" method=\"GET\" class=\"d-flex\">
                         <input name=\"search\" class=\"form-control me-2\" type=\"search\" placeholder=\"Search\" aria-label=\"Search\">
@@ -125,9 +131,9 @@ class __TwigTemplate_5c42011581ff8b8dd52d1509a1d6d792 extends Template
 
 
         ";
-        // line 56
+        // line 60
         $this->displayBlock('body', $context, $blocks);
-        // line 57
+        // line 61
         echo "
 
 
@@ -188,7 +194,7 @@ class __TwigTemplate_5c42011581ff8b8dd52d1509a1d6d792 extends Template
 
     }
 
-    // line 56
+    // line 60
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -212,7 +218,7 @@ class __TwigTemplate_5c42011581ff8b8dd52d1509a1d6d792 extends Template
 
     public function getDebugInfo()
     {
-        return array (  192 => 56,  182 => 13,  175 => 12,  165 => 9,  158 => 8,  145 => 5,  131 => 57,  129 => 56,  117 => 47,  114 => 46,  108 => 43,  105 => 42,  103 => 41,  97 => 38,  92 => 36,  88 => 35,  78 => 28,  63 => 15,  61 => 12,  58 => 11,  55 => 8,  50 => 5,  44 => 1,);
+        return array (  198 => 60,  188 => 13,  181 => 12,  171 => 9,  164 => 8,  151 => 5,  137 => 61,  135 => 60,  123 => 51,  120 => 50,  114 => 46,  108 => 43,  105 => 42,  103 => 41,  97 => 38,  92 => 36,  88 => 35,  78 => 28,  63 => 15,  61 => 12,  58 => 11,  55 => 8,  50 => 5,  44 => 1,);
     }
 
     public function getSourceContext()
@@ -261,6 +267,10 @@ class __TwigTemplate_5c42011581ff8b8dd52d1509a1d6d792 extends Template
                         <li class=\"nav-item\">
                             <a class=\"nav-link\" aria-current=\"page\" href=\"{{ path('dashboard') }}\">Dashboard</a>
                         </li>
+                        {% else %}
+                        <li class=\"nav-item\">
+                            <a class=\"nav-link\" aria-current=\"page\" href=\"/login\">Login</a>
+                        </li>
                         {% endif %}
                     </ul>
                     <form action=\"{{path('recherche')}}\" method=\"GET\" class=\"d-flex\">
@@ -280,6 +290,6 @@ class __TwigTemplate_5c42011581ff8b8dd52d1509a1d6d792 extends Template
 
     </body>
 </html>
-", "base.html.twig", "/Users/depairegabin/Documents/hellorse/git/exo-symfony/repository/templates/base.html.twig");
+", "base.html.twig", "/Users/depairegabin/Documents/hellorse/rendu/exo-symfony/repository/templates/base.html.twig");
     }
 }

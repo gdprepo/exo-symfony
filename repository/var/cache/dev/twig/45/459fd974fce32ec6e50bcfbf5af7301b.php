@@ -230,6 +230,6 @@ class __TwigTemplate_def562f4d9a81056a42fc996854a42a4 extends Template
 
 </div>
 {% endblock %}
-", "dashboard/index.html.twig", "/Users/depairegabin/Documents/hellorse/git/exo-symfony/repository/templates/dashboard/index.html.twig");
+", "dashboard/index.html.twig", "/Users/depairegabin/Documents/hellorse/rendu/exo-symfony/repository/templates/dashboard/index.html.twig");
     }
 }

@@ -72,10 +72,6 @@ class HomeController extends AbstractController
     {
         $products = $this->repository->findBy(array('Categorie' => $request->get('name')));
 
-        // if ($request->get('tailles')) {
-        // $products = $this->repository->findBySize($request->get('name'), $request->get('tailles'));
-        // }
-
         if (!$request->get('tailles')) {
             $articles = $paginator->paginate(
                 $products,
@@ -84,20 +80,13 @@ class HomeController extends AbstractController
             );
 
         } else {
-            $products_size_filter = [];
-
-            foreach($products as $product) {
-                if (count(array_intersect($request->get('tailles'), $product->getTailles())) > 0) {
-                    array_push($products_size_filter, $product);
-                }
-            }
+            $products_size_filter = $this->repository->findBySize($request->get('tailles'), $products);
 
             $articles = $paginator->paginate(
                 $products_size_filter, // Requête contenant les données à paginer (ici nos articles)
                 $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
                 6 // Nombre de résultats par page
             );
-
         }
 
         return $this->render('shop.html.twig', [

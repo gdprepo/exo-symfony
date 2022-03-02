@@ -62,8 +62,6 @@ return [[
 '[C]App%5CController%5CDashboardController%23index' => 1,
 'App%5CController%5CDashboardController%23delete' => 0,
 '[C]App%5CController%5CDashboardController%23delete' => 1,
-'App%5CController%5CDashboardController%23add' => 0,
-'[C]App%5CController%5CDashboardController%23add' => 1,
 'App%5CController%5CDashboardController%23edit' => 0,
 '[C]App%5CController%5CDashboardController%23edit' => 1,
 'App%5CController%5CDashboardController%24security' => 0,
@@ -650,6 +648,6 @@ return [[
 ], [
 
 0 => [],
-1 => 1646051480,
+1 => 1646208335,
 
 ]];

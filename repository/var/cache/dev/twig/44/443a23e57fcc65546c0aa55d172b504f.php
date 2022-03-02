@@ -320,6 +320,6 @@ class __TwigTemplate_70979dde54c139129a1e87460cdca38c extends Template
         </ul>
     </nav>
 {% endif %}
-", "@KnpPaginator/Pagination/bulma_pagination.html.twig", "/Users/depairegabin/Documents/hellorse/git/exo-symfony/repository/vendor/knplabs/knp-paginator-bundle/templates/Pagination/bulma_pagination.html.twig");
+", "@KnpPaginator/Pagination/bulma_pagination.html.twig", "/Users/depairegabin/Documents/hellorse/rendu/exo-symfony/repository/vendor/knplabs/knp-paginator-bundle/templates/Pagination/bulma_pagination.html.twig");
     }
 }

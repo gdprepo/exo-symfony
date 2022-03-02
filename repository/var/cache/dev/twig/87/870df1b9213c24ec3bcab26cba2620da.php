@@ -195,6 +195,6 @@ class __TwigTemplate_08ee2c1f299864680518cf7619c1fc79 extends Template
         </div>
     </div>
 {% endif %}
-", "@KnpPaginator/Pagination/tailwindcss_pagination.html.twig", "/Users/depairegabin/Documents/hellorse/git/exo-symfony/repository/vendor/knplabs/knp-paginator-bundle/templates/Pagination/tailwindcss_pagination.html.twig");
+", "@KnpPaginator/Pagination/tailwindcss_pagination.html.twig", "/Users/depairegabin/Documents/hellorse/rendu/exo-symfony/repository/vendor/knplabs/knp-paginator-bundle/templates/Pagination/tailwindcss_pagination.html.twig");
     }
 }

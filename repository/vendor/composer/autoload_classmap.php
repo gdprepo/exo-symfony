@@ -514,6 +514,7 @@ return array(
     'App\\DataFixtures\\AppFixtures' => $baseDir . '/src/DataFixtures/AppFixtures.php',
     'App\\Entity\\Product' => $baseDir . '/src/Entity/Product.php',
     'App\\Entity\\User' => $baseDir . '/src/Entity/User.php',
+    'App\\Form\\ProductType' => $baseDir . '/src/Form/ProductType.php',
     'App\\Form\\RegistrationFormType' => $baseDir . '/src/Form/RegistrationFormType.php',
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
     'App\\Repository\\ProductRepository' => $baseDir . '/src/Repository/ProductRepository.php',

@@ -48,28 +48,17 @@ class ProductRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findBySize($categorie, $sizes)
+    public function findBySize($taille, $products)
     {
-        // dd($categorie);
-        // $query = $this->createQueryBuilder('a')->where('a.Categorie = :val')
-        //     ->setParameter('val', $categorie);
-        // // dd($query->expr()->literal($sizes));
-        // // $ors[] = $query->expr()->in('a.Tailles = '.$query->expr()->literal($sizes[0]));
-        
-        // foreach ($sizes as $size) {
-        // $query->andWhere($query->expr()->in('a.Tailles', ':my_array'))
-        //     ->setParameter('my_array', $sizes);
-        // }
+        $result = [];
 
-        // $qb = $this->createQueryBuilder('a');
-        // $qb = $qb->where($qb->expr()->in('a.Tailles', array('XS')));
+        foreach($products as $product) {
+            if (count(array_intersect($taille, $product->getTailles())) > 0) {
+                array_push($result, $product);
+            }
+        }
 
-        
-
-        return $qb
-                ->getQuery()
-                ->getResult()
-                ;
+        return $result;
     }
 
     // /**
